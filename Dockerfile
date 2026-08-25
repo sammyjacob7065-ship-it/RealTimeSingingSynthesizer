@@ -2,16 +2,6 @@ FROM ubuntu:20.04
 
 RUN apt-get update
 
-RUN apt-get install software-properties-common -y
-
-RUN add-apt-repository ppa:mscore-ubuntu/mscore3-stable
-
-RUN apt update
-
-RUN apt install musescore3 -y
-
-RUN ln -s /usr/bin/musescore3 /usr/bin/musescore
-
 RUN apt install -y git
 
 RUN git clone https://github.com/mathigatti/RealTimeSingingSynthesizer.git
@@ -83,6 +73,3 @@ ADD Voice.py .
 ADD voice-api.py . 
 
 ENTRYPOINT ["python3", "-X", "utf8", "voice-api.py"]
-
-
-
